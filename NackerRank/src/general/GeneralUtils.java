@@ -27,7 +27,4 @@ public class GeneralUtils {
         System.out.println(str + str1 + a);
         in.close();
    }
-	public static void test(){
-		System.out.println("Test");
-	}
 }
