@@ -27,4 +27,20 @@ public class GeneralUtils {
         System.out.println(str + str1 + a);
         in.close();
    }
+
+	public static void main(String[] args) throws Exception{
+        Scanner in = new Scanner(System.in);
+        in.useDelimiter("\\n");
+        int a = 0;
+        String str = "";
+        
+        System.out.print("Enter Number : ");
+        a = Integer.parseInt(in.next().trim());
+        System.out.print("Enter Name : ");
+        str = in.next();
+        System.out.println("Number : " + a);
+        System.out.println("Name : " + str);
+        in.close();
+		
+	}
 }
