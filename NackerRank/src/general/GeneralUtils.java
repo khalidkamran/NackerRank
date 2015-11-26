@@ -56,6 +56,7 @@ public class GeneralUtils {
 		StringBuilder str = new StringBuilder(value);
 		// char[] strArray = value.toCharArray();
 		doPermute("", value);
+		// doMagic(value);
 		System.out.println(set);
 	}
 
@@ -67,6 +68,25 @@ public class GeneralUtils {
 				doPermute(prefix + value.charAt(i), value.substring(0, i) + value.substring(i + 1, len));
 			}
 		}
+	}
+
+	public static void doMagic(String value) {
+		doSum(0);
+		for (int i = 0; i < set.size(); i++) {
+			int val = set.first();
+			set.remove(val);
+			// System.out.println("do Magic Val : " + val);
+			doSum(++val);
+		}
+	}
+
+	public static void doSum(int index) {
+		int sum = 0;
+		for (Integer val : set.tailSet(index)) {
+			// System.out.println("do Sum Val : " + val);
+			sum += val;
+		}
+		product.add(sum);
 	}
 
 	public static void canAdd(String prefix, String value) {
