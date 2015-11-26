@@ -5,9 +5,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class GeneralUtils {
 
@@ -46,23 +46,45 @@ public class GeneralUtils {
 		in.close();
 	}
 
-	public static final Set<String> set = new HashSet();
+	// public static final Set<Integer> set = new HashSet();
+	// public static final Set<Integer> product = new HashSet();
+
+	public static final SortedSet<Integer> set = new TreeSet<>();
+	public static final SortedSet<Integer> product = new TreeSet();
 
 	public static void permute(String value) {
 		StringBuilder str = new StringBuilder(value);
-		// set.add(value);
 		// char[] strArray = value.toCharArray();
 		doPermute("", value);
 		System.out.println(set);
 	}
 
 	public static void doPermute(String prefix, String value) {
+		canAdd(prefix, value);
 		int len = value.length();
-		if (len == 0) {
-			set.add(prefix);
-		} else {
+		if (len != 0) {
 			for (int i = 0; i < len; i++) {
 				doPermute(prefix + value.charAt(i), value.substring(0, i) + value.substring(i + 1, len));
+			}
+		}
+	}
+
+	public static void canAdd(String prefix, String value) {
+		int len = prefix.trim().length();
+		int iVal = 0;
+		if (len != 0) {
+			iVal = Integer.parseInt(prefix);
+			if (isPrime(iVal)) {
+				set.add(iVal);
+			}
+		}
+		len = 0;
+		iVal = 0;
+		len = value.trim().length();
+		if (len != 0) {
+			iVal = Integer.parseInt(value);
+			if (isPrime(iVal)) {
+				set.add(iVal);
 			}
 		}
 	}
