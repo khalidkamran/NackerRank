@@ -3,13 +3,13 @@ package StringManipulation;
 import java.util.Scanner;
 
 /**
- * Successfully Submitted
+ * Successfully Submitted.
  * @author kamran
  *
  */
 public class AlternatingCharacters {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
         Scanner in = new Scanner(System.in);
         int count = in.nextInt();
         for(int i = 0; i < count; i++){
